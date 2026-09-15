@@ -65,9 +65,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenBooking })
                 <p className="text-sm font-semibold text-[#121815]">
                   {CLINIC_INFO.schedule}
                 </p>
-                <p className="text-xs text-[#515e59]">
-                  {CLINIC_INFO.scheduleWeekend}
-                </p>
               </div>
 
               {/* Direct Phone Contact */}

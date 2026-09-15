@@ -84,9 +84,6 @@ export const Footer: React.FC = () => {
             <p className="text-xs text-white/75 leading-relaxed">
               Графік прийому: {CLINIC_INFO.schedule}
             </p>
-            <p className="text-xs text-white/50">
-              {CLINIC_INFO.scheduleWeekend}
-            </p>
           </div>
 
           {/* Direct Contact & Booking */}

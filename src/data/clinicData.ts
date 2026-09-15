@@ -41,7 +41,6 @@ export const CLINIC_INFO = {
   phoneRaw: "+380660004242",
   email: "reception@novadente.clinic",
   schedule: "Пн–Пт: 09:00 — 18:00",
-  scheduleWeekend: "Сб–Нд: за попереднім записом",
   bookingUrl: "https://cliniccards.com/booking/a0sAxPGvLtI_4QZilBvyJy8AkXFyLDbu",
   googleMapsUrl: "https://maps.app.goo.gl/QhsGxXGisdoYzgKBA",
   instagramUrl: "https://www.instagram.com/nova.dente/",
