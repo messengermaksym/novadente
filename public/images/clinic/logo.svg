@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Clean geometric vector monogram of Nova Dente (interlocked ND) -->
+  <g stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <!-- N left vertical stem and diagonal -->
+    <line x1="22" y1="20" x2="22" y2="70" />
+    <line x1="22" y1="20" x2="65" y2="70" />
+    
+    <!-- N right vertical stem which also starts D's stem -->
+    <line x1="65" y1="20" x2="65" y2="70" />
+    
+    <!-- D loop wrapping around and extending to the right -->
+    <path d="M48 48 L65 48 C85 48 92 60 92 70 C92 80 85 86 65 86 L44 86 L44 55" />
+  </g>
+</svg>

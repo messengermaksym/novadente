@@ -1,0 +1,89 @@
+/* Hallmark · macrostructure: Editorial Clinic Showcase · theme: Forest-Lumen · nav: N5 · footer: Ft5 · critique: P5 H5 E5 S5 R5 V5 · honest: pass (46) · chrome: pass (47) · tokens: pass (48) · responsive: pass (49) · contrast: pass (40-41) · mobile: pass (34, 49, 50-57) */
+
+@import "tailwindcss";
+
+@theme {
+  --font-serif: var(--font-display), Georgia, serif;
+  --font-sans: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --color-forest-950: #071f19;
+  --color-forest-900: #0c4134;
+  --color-forest-850: #104c3e;
+  --color-forest-800: #155a49;
+  --color-forest-700: #1e755f;
+  --color-forest-600: #298d74;
+  --color-forest-500: #3aa88c;
+  --color-forest-100: #e4f2ed;
+  --color-forest-50: #f1f8f5;
+
+  --color-paper-base: #f9f8f4;
+  --color-paper-subtle: #f2f0ea;
+  --color-paper-card: #ffffff;
+  --color-paper-border: #e3e1d8;
+
+  --color-ink-primary: #121815;
+  --color-ink-muted: #515e59;
+  --color-ink-faint: #83918b;
+}
+
+:root {
+  --bg-primary: #f9f8f4;
+  --text-primary: #121815;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+body {
+  background-color: #f9f8f4;
+  color: #121815;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+}
+
+/* Tasteful subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f2f0ea;
+}
+::-webkit-scrollbar-thumb {
+  background: #c8cec9;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0c4134;
+}
+
+/* Infinite marquee animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+    flex-wrap: wrap;
+    white-space: normal;
+  }
+}
