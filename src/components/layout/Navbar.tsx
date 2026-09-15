@@ -38,7 +38,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
     <>
       {/* Main Header */}
       <header
-        className={`sticky top-0 z-40 bg-[#0c4134] text-white border-b border-white/10 transition-all duration-200 ${
+        style={{
+          transform: "translate3d(0, 0, 0)",
+          WebkitTransform: "translate3d(0, 0, 0)",
+        }}
+        className={`sticky top-0 z-[100] bg-[#0c4134] text-white border-b border-white/10 transition-all duration-200 ${
           isScrolled ? "py-2.5 shadow-md" : "py-3.5"
         }`}
       >
