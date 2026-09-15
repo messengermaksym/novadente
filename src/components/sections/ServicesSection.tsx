@@ -89,12 +89,6 @@ export const ServicesSection: React.FC<ServicesSectionProps> = () => {
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                     />
-                    <div className="absolute top-3 left-3 px-2.5 py-1 bg-white/95 backdrop-blur-xs rounded text-[11px] font-semibold text-[#0c4134] border border-[#e3e1d8]">
-                      {service.category}
-                    </div>
-                    <div className="absolute bottom-3 right-3 px-2.5 py-1 bg-[#0c4134] text-white rounded text-xs font-semibold">
-                      {service.priceHint}
-                    </div>
                   </div>
 
                   {/* Content */}
