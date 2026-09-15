@@ -3,7 +3,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Clock, ArrowUpRight, Calendar } from "lucide-react";
+import { ArrowUpRight, Calendar } from "lucide-react";
 import { CLINIC_INFO } from "@/data/clinicData";
 
 interface ContactSectionProps {
@@ -48,26 +48,13 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenBooking })
             <div className="divide-y divide-[#e3e1d8] border-y border-[#e3e1d8]">
               
               {/* Address Row */}
-              <div className="py-5 flex items-start justify-between gap-4 group">
-                <div className="space-y-1">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#83918b] block">
-                    Адреса клініки
-                  </span>
-                  <p className="text-sm font-semibold text-[#121815] leading-snug">
-                    {CLINIC_INFO.fullAddress}
-                  </p>
-                </div>
-                <a
-                  href={CLINIC_INFO.googleMapsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-1 inline-flex items-center gap-1 text-xs font-medium text-[#1e755f] hover:text-[#0c4134] transition-colors shrink-0"
-                  aria-label="Відкрити адресу в Google Maps"
-                >
-                  <MapPin className="w-3.5 h-3.5" />
-                  <span className="underline underline-offset-4">Маршрут</span>
-                  <ArrowUpRight className="w-3 h-3" />
-                </a>
+              <div className="py-5 space-y-1">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#83918b] block">
+                  Адреса клініки
+                </span>
+                <p className="text-sm font-semibold text-[#121815] leading-snug">
+                  {CLINIC_INFO.fullAddress}
+                </p>
               </div>
 
               {/* Working Hours Row */}
@@ -84,46 +71,32 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenBooking })
               </div>
 
               {/* Direct Phone Contact */}
-              <div className="py-5 flex items-start justify-between gap-4">
-                <div className="space-y-1">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#83918b] block">
-                    Прямий телефон
-                  </span>
-                  <a
-                    href={`tel:${CLINIC_INFO.phoneRaw}`}
-                    className="font-serif text-lg font-bold text-[#0c4134] hover:text-[#1e755f] transition-colors block"
-                  >
-                    {CLINIC_INFO.phone}
-                  </a>
-                  <p className="text-xs text-[#83918b]">
-                    Консультація та попередній запис
-                  </p>
-                </div>
+              <div className="py-5 space-y-1">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#83918b] block">
+                  Прямий телефон
+                </span>
                 <a
                   href={`tel:${CLINIC_INFO.phoneRaw}`}
-                  className="mt-1 p-2 rounded-lg bg-[#e4f2ed] text-[#0c4134] hover:bg-[#0c4134] hover:text-white transition-colors shrink-0"
-                  aria-label="Зателефонувати в клініку"
+                  className="font-serif text-lg font-bold text-[#0c4134] hover:text-[#1e755f] transition-colors block"
                 >
-                  <Phone className="w-4 h-4" />
+                  {CLINIC_INFO.phone}
                 </a>
+                <p className="text-xs text-[#83918b]">
+                  Консультація та попередній запис
+                </p>
               </div>
 
               {/* Email / Documentation */}
-              <div className="py-5 flex items-start justify-between gap-4">
-                <div className="space-y-1">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#83918b] block">
-                    Електронна пошта
-                  </span>
-                  <a
-                    href={`mailto:${CLINIC_INFO.email}`}
-                    className="text-sm font-semibold text-[#0c4134] hover:text-[#1e755f] transition-colors break-all block"
-                  >
-                    {CLINIC_INFO.email}
-                  </a>
-                </div>
-                <div className="mt-1 text-[#83918b] shrink-0">
-                  <Mail className="w-4 h-4" />
-                </div>
+              <div className="py-5 space-y-1">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#83918b] block">
+                  Електронна пошта
+                </span>
+                <a
+                  href={`mailto:${CLINIC_INFO.email}`}
+                  className="text-sm font-semibold text-[#0c4134] hover:text-[#1e755f] transition-colors break-all block"
+                >
+                  {CLINIC_INFO.email}
+                </a>
               </div>
             </div>
 
