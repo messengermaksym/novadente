@@ -78,9 +78,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenBooking })
                 >
                   {CLINIC_INFO.phone}
                 </a>
-                <p className="text-xs text-[#83918b]">
-                  Консультація та попередній запис
-                </p>
               </div>
 
               {/* Email / Documentation */}

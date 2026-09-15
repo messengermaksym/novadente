@@ -40,9 +40,6 @@ export const Footer: React.FC = () => {
                 height={52}
                 className="object-contain shrink-0 h-12 w-auto"
               />
-              <span className="font-serif text-2xl font-bold tracking-tight text-white">
-                Nova Dente
-              </span>
             </div>
             <p className="text-sm text-white/70 max-w-lg leading-relaxed">
               Сімейна стоматологічна клініка в Мукачеві. 
