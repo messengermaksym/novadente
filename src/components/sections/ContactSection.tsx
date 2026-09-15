@@ -1,8 +1,9 @@
+/* Hallmark · component: ContactSection · genre: editorial · theme: Forest-Lumen · critique: P5 H5 E5 S5 R5 V5 */
 "use client";
 
 import React from "react";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Clock, ExternalLink, Navigation } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, ArrowUpRight, Calendar } from "lucide-react";
 import { CLINIC_INFO } from "@/data/clinicData";
 
 interface ContactSectionProps {
@@ -11,170 +12,170 @@ interface ContactSectionProps {
 
 export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenBooking }) => {
   return (
-    <section id="contacts" className="py-20 lg:py-28 bg-[#faf9f5] relative">
+    <section id="contacts" className="py-20 lg:py-28 bg-[#faf9f5] border-b border-[#e3e1d8] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          {/* Left Column: Contact Cards */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-6 space-y-8"
-          >
-            <div className="space-y-3">
-              <span className="text-xs uppercase tracking-widest text-[#1d725d] font-bold">
-                Локація та зв&apos;язок
-              </span>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#0c4134] tracking-tight">
-                Завітайте до Nova Dente у Мукачеві
-              </h2>
-              <p className="text-sm sm:text-base text-[#52605b] leading-relaxed">
-                Ми знаходимося у затишному центрі міста Мукачево зі зручним під&apos;їздом та паркінгом для пацієнтів. 
-                Чекаємо на ваш візит!
-              </p>
-            </div>
+        
+        {/* Editorial Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="max-w-2xl mb-14 space-y-2"
+        >
+          <span className="text-xs font-bold uppercase tracking-widest text-[#1e755f]">
+            Локація та візит
+          </span>
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#0c4134] tracking-tight">
+            Чекаємо на вас у Мукачеві
+          </h2>
+          <p className="text-sm sm:text-base text-[#515e59] leading-relaxed">
+            Клініка Nova Dente розташована в центрі міста зі зручним під&apos;їздом та паркінгом для пацієнтів.
+          </p>
+        </motion.div>
 
-            {/* Info Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {/* Address */}
-              <motion.div
-                whileHover={{ y: -3, transition: { duration: 0.2 } }}
-                className="bg-white p-5 rounded-2xl border border-[#0c4134]/10 shadow-xs hover:shadow-md transition-shadow space-y-2"
-              >
-                <div className="w-9 h-9 rounded-lg bg-[#e4f2ed] text-[#0c4134] flex items-center justify-center">
-                  <MapPin className="w-5 h-5" />
+        {/* Editorial Two-Column: Structured Directory List + Crisp Map Frame */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          
+          {/* Left Column: Structured Editorial Directory List */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-5 flex flex-col justify-between space-y-8"
+          >
+            <div className="divide-y divide-[#e3e1d8] border-y border-[#e3e1d8]">
+              
+              {/* Address Row */}
+              <div className="py-5 flex items-start justify-between gap-4 group">
+                <div className="space-y-1">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#83918b] block">
+                    Адреса клініки
+                  </span>
+                  <p className="text-sm font-semibold text-[#121815] leading-snug">
+                    {CLINIC_INFO.fullAddress}
+                  </p>
                 </div>
-                <div className="text-xs font-bold text-[#121815] uppercase tracking-wider">
-                  Адреса клініки
-                </div>
-                <p className="text-xs text-[#52605b] leading-relaxed">
-                  {CLINIC_INFO.fullAddress}
-                </p>
                 <a
                   href={CLINIC_INFO.googleMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-xs font-semibold text-[#1d725d] hover:text-[#0c4134] transition-colors pt-1"
+                  className="mt-1 inline-flex items-center gap-1 text-xs font-medium text-[#1e755f] hover:text-[#0c4134] transition-colors shrink-0"
+                  aria-label="Відкрити адресу в Google Maps"
                 >
-                  <Navigation className="w-3.5 h-3.5" />
-                  <span>Прокласти маршрут</span>
+                  <MapPin className="w-3.5 h-3.5" />
+                  <span className="underline underline-offset-4">Маршрут</span>
+                  <ArrowUpRight className="w-3 h-3" />
                 </a>
-              </motion.div>
+              </div>
 
-              {/* Working Hours */}
-              <motion.div
-                whileHover={{ y: -3, transition: { duration: 0.2 } }}
-                className="bg-white p-5 rounded-2xl border border-[#0c4134]/10 shadow-xs hover:shadow-md transition-shadow space-y-2"
-              >
-                <div className="w-9 h-9 rounded-lg bg-[#e4f2ed] text-[#0c4134] flex items-center justify-center">
-                  <Clock className="w-5 h-5" />
-                </div>
-                <div className="text-xs font-bold text-[#121815] uppercase tracking-wider">
+              {/* Working Hours Row */}
+              <div className="py-5 space-y-1">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#83918b] block">
                   Графік прийому
-                </div>
-                <p className="text-xs text-[#52605b] leading-relaxed">
+                </span>
+                <p className="text-sm font-semibold text-[#121815]">
                   {CLINIC_INFO.schedule}
                 </p>
-                <p className="text-[11px] text-[#899691]">
+                <p className="text-xs text-[#515e59]">
                   {CLINIC_INFO.scheduleWeekend}
                 </p>
-              </motion.div>
+              </div>
 
-              {/* Phone */}
-              <motion.div
-                whileHover={{ y: -3, transition: { duration: 0.2 } }}
-                className="bg-white p-5 rounded-2xl border border-[#0c4134]/10 shadow-xs hover:shadow-md transition-shadow space-y-2"
-              >
-                <div className="w-9 h-9 rounded-lg bg-[#e4f2ed] text-[#0c4134] flex items-center justify-center">
-                  <Phone className="w-5 h-5" />
-                </div>
-                <div className="text-xs font-bold text-[#121815] uppercase tracking-wider">
-                  Телефон рецепції
+              {/* Direct Phone Contact */}
+              <div className="py-5 flex items-start justify-between gap-4">
+                <div className="space-y-1">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#83918b] block">
+                    Прямий телефон
+                  </span>
+                  <a
+                    href={`tel:${CLINIC_INFO.phoneRaw}`}
+                    className="font-serif text-lg font-bold text-[#0c4134] hover:text-[#1e755f] transition-colors block"
+                  >
+                    {CLINIC_INFO.phone}
+                  </a>
+                  <p className="text-xs text-[#83918b]">
+                    Консультація та попередній запис
+                  </p>
                 </div>
                 <a
                   href={`tel:${CLINIC_INFO.phoneRaw}`}
-                  className="block text-sm font-bold text-[#0c4134] hover:text-[#1d725d] transition-colors"
+                  className="mt-1 p-2 rounded-lg bg-[#e4f2ed] text-[#0c4134] hover:bg-[#0c4134] hover:text-white transition-colors shrink-0"
+                  aria-label="Зателефонувати в клініку"
                 >
-                  {CLINIC_INFO.phone}
+                  <Phone className="w-4 h-4" />
                 </a>
-                <p className="text-[11px] text-[#899691]">
-                  Дзвінки згідно з тарифами вашого оператора
-                </p>
-              </motion.div>
+              </div>
 
-              {/* Email */}
-              <motion.div
-                whileHover={{ y: -3, transition: { duration: 0.2 } }}
-                className="bg-white p-5 rounded-2xl border border-[#0c4134]/10 shadow-xs hover:shadow-md transition-shadow space-y-2"
-              >
-                <div className="w-9 h-9 rounded-lg bg-[#e4f2ed] text-[#0c4134] flex items-center justify-center">
-                  <Mail className="w-5 h-5" />
+              {/* Email / Documentation */}
+              <div className="py-5 flex items-start justify-between gap-4">
+                <div className="space-y-1">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#83918b] block">
+                    Електронна пошта
+                  </span>
+                  <a
+                    href={`mailto:${CLINIC_INFO.email}`}
+                    className="text-sm font-semibold text-[#0c4134] hover:text-[#1e755f] transition-colors break-all block"
+                  >
+                    {CLINIC_INFO.email}
+                  </a>
                 </div>
-                <div className="text-xs font-bold text-[#121815] uppercase tracking-wider">
-                  Електронна пошта
+                <div className="mt-1 text-[#83918b] shrink-0">
+                  <Mail className="w-4 h-4" />
                 </div>
-                <a
-                  href={`mailto:${CLINIC_INFO.email}`}
-                  className="block text-xs font-bold text-[#0c4134] hover:text-[#1d725d] transition-colors break-all"
-                >
-                  {CLINIC_INFO.email}
-                </a>
-                <p className="text-[11px] text-[#899691]">
-                  Для документації та запитань
-                </p>
-              </motion.div>
+              </div>
             </div>
 
-            {/* Quick action buttons */}
+            {/* Direct CTA Bar */}
             <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
               <motion.button
-                whileHover={{ scale: 1.02 }}
+                whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={onOpenBooking}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#0c4134] text-white text-xs font-semibold uppercase tracking-wider rounded-xl hover:bg-[#145a48] transition-colors shadow-sm"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#0c4134] text-white text-xs font-semibold uppercase tracking-wider rounded-lg hover:bg-[#155a49] transition-colors shadow-xs cursor-pointer"
               >
+                <Calendar className="w-3.5 h-3.5" />
                 <span>Записатися на прийом</span>
               </motion.button>
 
               <motion.a
-                whileHover={{ scale: 1.02 }}
+                whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.98 }}
                 href={CLINIC_INFO.bookingUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white text-[#0c4134] border border-[#0c4134]/20 text-xs font-semibold uppercase tracking-wider rounded-xl hover:bg-[#e4f2ed] transition-colors"
+                className="inline-flex items-center justify-center gap-1.5 px-6 py-3.5 bg-white text-[#0c4134] border border-[#e3e1d8] text-xs font-semibold uppercase tracking-wider rounded-lg hover:bg-[#e4f2ed] transition-colors"
               >
-                <span>ClinicCards онлайн</span>
-                <ExternalLink className="w-3.5 h-3.5" />
+                <span>ClinicCards</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
               </motion.a>
             </div>
           </motion.div>
 
-          {/* Right Column: Interactive Map Frame */}
+          {/* Right Column: Clean Architectural Map Frame */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.97 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-7"
           >
-            <div className="bg-white p-3 rounded-3xl border border-[#0c4134]/10 shadow-lg overflow-hidden">
-              <div className="relative w-full h-[420px] rounded-2xl overflow-hidden bg-[#e4f2ed]">
-                <iframe
-                  title="Карта проїзду до стоматології Nova Dente Мукачево"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2639.2319225725776!2d22.716168!3d48.441484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473919e91771f2b9%3A0x4a9fb6cf47f3b6a0!2z0LLRg9C70LjRhtGPINCd0LXQtNC10YbQtdGXLCDQnNGD0LrQsNGH0LXQstC-LCDQl9Cw0LrQsNGA0L_QsNGC0YHRjNC60LAg0L7QsdC70LDRgdGC0YwsIDg5NjEx!5e0!3m2!1suk!2sua!4v1710000000000!5m2!1suk!2sua"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen={false}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="w-full h-full filter contrast-[1.02]"
-                />
-              </div>
+            <div className="relative w-full h-[400px] sm:h-[460px] rounded-xl overflow-hidden border border-[#e3e1d8] bg-[#e4f2ed] shadow-xs">
+              <iframe
+                title="Карта розташування клініки Nova Dente у Мукачеві"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2639.2319225725776!2d22.716168!3d48.441484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473919e91771f2b9%3A0x4a9fb6cf47f3b6a0!2z0LLRg9C70LjRhtGPINCd0LXQtNC10YbQtdGXLCDQnNGD0LrQsNGH0LXQstC-LCDQl9Cw0LrQsNGA0L_QsNGC0YHRjNC60LAg0L7QsdC70LDRgdGC0YwsIDg5NjEx!5e0!3m2!1suk!2sua!4v1710000000000!5m2!1suk!2sua"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full filter contrast-[1.02]"
+              />
             </div>
           </motion.div>
+
         </div>
       </div>
     </section>
