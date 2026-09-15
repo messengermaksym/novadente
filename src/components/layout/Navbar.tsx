@@ -103,18 +103,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
 
           {/* Mobile button */}
           <div className="flex sm:hidden items-center gap-2">
-            <a
-              href={`tel:${CLINIC_INFO.phoneRaw}`}
-              aria-label="Зателефонувати до клініки"
-              className="p-2 rounded-lg bg-white/10 text-white"
+            <button
+              type="button"
+              onClick={onOpenBooking}
+              className="px-3 py-1.5 rounded-lg bg-white text-[#0c4134] text-xs font-semibold hover:bg-[#e4f2ed] active:scale-95 transition-all shadow-xs cursor-pointer"
             >
-              <Phone className="w-4 h-4 text-[#5fc4aa]" />
-            </a>
+              Записатися
+            </button>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Меню"
-              className="p-2 text-white"
+              className="p-1.5 text-white"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6 text-white" />}
             </button>
