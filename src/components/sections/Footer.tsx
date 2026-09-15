@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { Phone, Mail, MapPin, Calendar, ArrowUp } from "lucide-react";
 import { CLINIC_INFO } from "@/data/clinicData";
+import { getAssetPath } from "@/lib/utils";
 
 const InstagramIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -33,7 +34,7 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-6 space-y-4">
             <div className="flex items-center gap-3">
               <Image
-                src="/images/clinic/logo.png"
+                src={getAssetPath("/images/clinic/logo.png")}
                 alt="Nova Dente Logo"
                 width={52}
                 height={52}

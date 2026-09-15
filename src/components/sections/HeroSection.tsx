@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { getAssetPath } from "@/lib/utils";
 
 interface HeroSectionProps {
   onOpenBooking: () => void;
@@ -24,7 +25,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
             className="relative rounded-2xl overflow-hidden border border-[#e3e1d8] bg-[#0c4134] shadow-sm aspect-[4/3] sm:aspect-[16/10] w-full"
           >
             <Image
-              src="/images/clinic/hero-team.png"
+              src={getAssetPath("/images/clinic/hero-team.png")}
               alt="Команда лікарів Nova Dente"
               fill
               sizes="(max-width: 1024px) 100vw, 42vw"
@@ -128,7 +129,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
             <figure className="relative rounded-2xl overflow-hidden border border-[#e3e1d8] bg-white shadow-sm hover:shadow-md transition-shadow">
               <div className="relative aspect-[4/5] w-full bg-[#f2f0ea]">
                 <Image
-                  src="/images/clinic/hero-team.png"
+                  src={getAssetPath("/images/clinic/hero-team.png")}
                   alt="Команда лікарів Nova Dente"
                   fill
                   sizes="42vw"

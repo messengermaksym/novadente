@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { DOCTORS } from "@/data/clinicData";
+import { getAssetPath } from "@/lib/utils";
 
 interface DoctorsSectionProps {
   onSelectDoctorForBooking?: (doctorName: string) => void;
@@ -48,7 +49,7 @@ export const DoctorsSection: React.FC<DoctorsSectionProps> = () => {
                 {/* Doctor Portrait Frame */}
                 <div className="relative aspect-[3/4] w-full bg-[#e4f2ed] border-b border-[#e3e1d8] overflow-hidden">
                   <Image
-                    src={doctor.image}
+                    src={getAssetPath(doctor.image)}
                     alt={doctor.name}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"

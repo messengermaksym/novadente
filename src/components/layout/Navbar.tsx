@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Menu, X, Clock, MapPin } from "lucide-react";
 import { CLINIC_INFO } from "@/data/clinicData";
+import { getAssetPath } from "@/lib/utils";
 
 interface NavbarProps {
   onOpenBooking: () => void;
@@ -53,7 +54,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
             className="flex items-center cursor-pointer"
           >
             <Image
-              src="/images/clinic/logo.png"
+              src={getAssetPath("/images/clinic/logo.png")}
               alt="Nova Dente Logo"
               width={56}
               height={56}

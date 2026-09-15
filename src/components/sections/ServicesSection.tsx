@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { SERVICES } from "@/data/clinicData";
+import { getAssetPath } from "@/lib/utils";
 
 interface ServicesSectionProps {
   onSelectServiceForBooking?: (serviceTitle: string) => void;
@@ -82,7 +83,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = () => {
                   {/* Service Image Frame */}
                   <div className="relative aspect-[16/10] w-full bg-[#e4f2ed] border-b border-[#e3e1d8] overflow-hidden">
                     <Image
-                      src={service.image}
+                      src={getAssetPath(service.image)}
                       alt={service.title}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
