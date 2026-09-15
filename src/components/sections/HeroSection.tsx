@@ -12,7 +12,7 @@ interface HeroSectionProps {
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
   return (
-    <section className="sticky top-[58px] sm:top-[68px] z-10 pt-4 pb-16 sm:pt-8 sm:pb-20 lg:pt-14 lg:pb-28 bg-[#f9f8f4] border-b border-[#e3e1d8] overflow-hidden">
+    <section className="sticky top-[58px] sm:top-[68px] z-10 mt-[58px] sm:mt-[68px] pt-4 pb-16 sm:pt-8 sm:pb-20 lg:pt-14 lg:pb-28 bg-[#f9f8f4] border-b border-[#e3e1d8] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* MOBILE VIEW (< lg): Photo on top with superimposed headline */}

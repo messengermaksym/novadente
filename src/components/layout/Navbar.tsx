@@ -42,7 +42,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
           transform: "translate3d(0, 0, 0)",
           WebkitTransform: "translate3d(0, 0, 0)",
         }}
-        className={`sticky top-0 z-[100] bg-[#0c4134] text-white border-b border-white/10 transition-all duration-200 ${
+        className={`fixed top-0 left-0 right-0 z-[100] bg-[#0c4134] text-white border-b border-white/10 transition-all duration-200 ${
           isScrolled ? "py-2.5 shadow-md" : "py-3.5"
         }`}
       >
