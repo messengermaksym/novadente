@@ -15,9 +15,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
     <section className="sticky top-[58px] sm:top-[68px] z-10 mt-[58px] sm:mt-[68px] pt-4 pb-16 sm:pt-8 sm:pb-20 lg:pt-14 lg:pb-28 bg-[#f9f8f4] border-b border-[#e3e1d8] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* MOBILE VIEW (< lg): Full team portrait with superimposed headline */}
+        {/* MOBILE VIEW (< lg): Full team portrait with centered headline & description overlay */}
         <div className="lg:hidden space-y-4">
-          {/* Full Team Photo Frame with Headline Superimposed */}
+          {/* Full Team Photo Frame with Centered Headline & Text */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
@@ -32,14 +32,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
               className="object-cover object-center"
               priority
             />
-            {/* Subtle dark gradient scrim at the bottom for crisp headline legibility */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#061e18]/90 via-[#061e18]/30 to-transparent" />
+            {/* Dark gradient scrim for crisp text legibility */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#061e18]/95 via-[#061e18]/65 to-[#061e18]/30" />
             
-            {/* Headline overlaid over the photo */}
-            <div className="absolute inset-0 flex items-end p-5 sm:p-6">
+            {/* Centered Headline & Description Overlay */}
+            <div className="absolute inset-0 flex flex-col justify-center items-center text-center p-6 sm:p-8 space-y-3.5">
               <h1 className="font-serif text-3xl sm:text-4xl font-semibold text-white leading-[1.15] tracking-tight drop-shadow-md">
                 Стоматологія, якій довіряють.
               </h1>
+              <p className="text-xs sm:text-sm text-white/90 leading-relaxed max-w-sm drop-shadow-sm font-normal">
+                Nova Dente — сучасна стоматологія у Мукачеві. 
+                Ми об&apos;єднали дбайливий підхід без болю та страху зі світовими стандартами: 
+                швейцарською імплантацією <span className="font-semibold text-white">Straumann®</span>, 
+                лікуванням каналів під оптикою <span className="font-semibold text-white">Carl Zeiss</span> та комфортною седацією для дітей.
+              </p>
             </div>
           </motion.div>
 
