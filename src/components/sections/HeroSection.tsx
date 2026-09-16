@@ -15,56 +15,59 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
     <section className="sticky top-[58px] sm:top-[68px] z-10 mt-[58px] sm:mt-[68px] pt-4 pb-16 sm:pt-8 sm:pb-20 lg:pt-14 lg:pb-28 bg-[#f9f8f4] border-b border-[#e3e1d8] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* MOBILE VIEW (< lg): Full team portrait with centered headline & description overlay */}
-        <div className="lg:hidden space-y-4">
-          {/* Full Team Photo Frame with Centered Headline & Text */}
+        {/* MOBILE VIEW (< lg): Photo on top with superimposed headline */}
+        <div className="lg:hidden space-y-6">
+          {/* Top Photo Frame with Headline Superimposed */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="relative rounded-2xl overflow-hidden border border-[#e3e1d8] bg-[#0c4134] shadow-sm aspect-[4/5] w-full"
+            className="relative rounded-2xl overflow-hidden border border-[#e3e1d8] bg-[#0c4134] shadow-sm aspect-[4/3] sm:aspect-[16/10] w-full"
           >
             <Image
               src={getAssetPath("/images/clinic/hero-team.png")}
               alt="Команда лікарів Nova Dente"
               fill
               sizes="(max-width: 1024px) 100vw, 42vw"
-              className="object-cover object-center"
+              className="object-cover object-top"
               priority
             />
-            {/* Dark gradient scrim for crisp text legibility */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#061e18]/95 via-[#061e18]/65 to-[#061e18]/30" />
+            {/* Dark gradient scrim at the bottom for crisp headline legibility */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#061e18]/95 via-[#061e18]/45 to-transparent" />
             
-            {/* Centered Headline & Description Overlay */}
-            <div className="absolute inset-0 flex flex-col justify-center items-center text-center p-6 sm:p-8 space-y-3.5">
-              <h1 className="font-serif text-3xl sm:text-4xl font-semibold text-white leading-[1.15] tracking-tight drop-shadow-md">
+            {/* Headline overlaid over the photo */}
+            <div className="absolute inset-0 flex items-end p-5 sm:p-6">
+              <h1 className="font-serif text-3xl sm:text-4xl font-semibold text-white leading-[1.15] tracking-tight drop-shadow-sm">
                 Стоматологія, якій довіряють.
               </h1>
-              <p className="text-xs sm:text-sm text-white/90 leading-relaxed max-w-sm drop-shadow-sm font-normal">
-                Nova Dente — сучасна стоматологія у Мукачеві. 
-                Ми об&apos;єднали дбайливий підхід без болю та страху зі світовими стандартами: 
-                швейцарською імплантацією <span className="font-semibold text-white">Straumann®</span>, 
-                лікуванням каналів під оптикою <span className="font-semibold text-white">Carl Zeiss</span> та комфортною седацією для дітей.
-              </p>
             </div>
           </motion.div>
 
-          {/* Direct Action Button on Mobile */}
+          {/* Lede & Actions on Mobile */}
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="pt-1"
+            transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            className="space-y-6"
           >
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={onOpenBooking}
-              className="w-full flex items-center justify-center gap-2.5 px-6 py-3.5 bg-[#0c4134] text-white font-semibold text-sm rounded-xl hover:bg-[#155a49] active:translate-y-px transition-colors shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0c4134]"
-            >
-              <span>Записатися на консультацію</span>
-              <ArrowRight className="w-4 h-4" />
-            </motion.button>
+            <p className="text-sm sm:text-base text-[#515e59] leading-relaxed">
+              Nova Dente — сучасна стоматологія у Мукачеві. 
+              Ми об&apos;єднали дбайливий підхід без болю та страху зі світовими стандартами: 
+              швейцарською імплантацією <span className="font-semibold text-[#121815]">Straumann®</span>, 
+              лікуванням каналів під оптикою <span className="font-semibold text-[#121815]">Carl Zeiss</span> та комфортною седацією для дітей.
+            </p>
+
+            <div className="pt-1 flex flex-col items-stretch gap-3.5">
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={onOpenBooking}
+                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-[#0c4134] text-white font-medium text-sm rounded-xl hover:bg-[#155a49] active:translate-y-px transition-colors shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0c4134]"
+              >
+                <span>Записатися на консультацію</span>
+                <ArrowRight className="w-4 h-4" />
+              </motion.button>
+            </div>
           </motion.div>
         </div>
 
