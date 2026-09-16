@@ -50,9 +50,6 @@ export default function Home() {
         {/* About & Philosophy (Parallax Overlap) */}
         <AboutSection />
 
-        {/* Infinite Trust Ticker */}
-        <TrustTicker />
-
         {/* Categorized Services */}
         <ServicesSection onSelectServiceForBooking={handleSelectServiceForBooking} />
 
@@ -67,6 +64,9 @@ export default function Home() {
 
         {/* Authentic Reviews */}
         <ReviewsSection />
+
+        {/* Infinite Trust Ticker */}
+        <TrustTicker />
 
         {/* Location & Contacts */}
         <ContactSection onOpenBooking={handleOpenBooking} />

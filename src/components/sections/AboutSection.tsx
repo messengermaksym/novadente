@@ -1,8 +1,61 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
+import { motion, useInView, animate } from "framer-motion";
 import { CLINIC_STATS } from "@/data/clinicData";
+
+const StatCounter: React.FC<{ value: string }> = ({ value }) => {
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-40px" });
+  const [displayValue, setDisplayValue] = useState<string>("0");
+
+  useEffect(() => {
+    if (!isInView) return;
+
+    if (value.includes("5 000")) {
+      const controls = animate(0, 5000, {
+        duration: 2.2,
+        ease: [0.16, 1, 0.3, 1],
+        onUpdate: (latest) => {
+          const formatted = Math.floor(latest).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+          setDisplayValue(`${formatted}+`);
+        },
+      });
+      return () => controls.stop();
+    } else if (value.includes("10+")) {
+      const controls = animate(0, 10, {
+        duration: 1.8,
+        ease: [0.16, 1, 0.3, 1],
+        onUpdate: (latest) => {
+          setDisplayValue(`${Math.floor(latest)}+`);
+        },
+      });
+      return () => controls.stop();
+    } else if (value.includes("4.9")) {
+      const controls = animate(0, 4.9, {
+        duration: 1.8,
+        ease: [0.16, 1, 0.3, 1],
+        onUpdate: (latest) => {
+          setDisplayValue(`${latest.toFixed(1)}`);
+        },
+      });
+      return () => controls.stop();
+    } else {
+      setDisplayValue(value);
+    }
+  }, [isInView, value]);
+
+  const isRating = value.includes("4.9") || value.includes("★");
+
+  return (
+    <span ref={ref} className="tabular-nums inline-flex items-center gap-1.5">
+      <span>{displayValue}</span>
+      {isRating && (
+        <span className="text-[#5fc4aa] text-2xl sm:text-3xl transition-transform duration-300">★</span>
+      )}
+    </span>
+  );
+};
 
 export const AboutSection: React.FC = () => {
   const commitments = [
@@ -81,20 +134,20 @@ export const AboutSection: React.FC = () => {
           ))}
         </div>
 
-        {/* Clean Credential Row */}
+        {/* Clean Animated Credential Row */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="pt-12 mt-4 border-t border-white/15 grid grid-cols-2 md:grid-cols-4 gap-6"
+          className="pt-12 mt-4 border-t border-white/15 grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-10"
         >
           {CLINIC_STATS.map((stat, idx) => (
-            <div key={idx} className="space-y-1">
-              <div className="font-serif text-2xl sm:text-3xl font-bold text-white">
-                {stat.value}
+            <div key={idx} className="space-y-1.5">
+              <div className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+                <StatCounter value={stat.value} />
               </div>
-              <div className="text-xs text-white/70">
+              <div className="text-sm text-white/75 leading-snug">
                 {stat.label}
               </div>
             </div>
@@ -104,4 +157,5 @@ export const AboutSection: React.FC = () => {
     </section>
   );
 };
+
 

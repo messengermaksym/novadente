@@ -14,7 +14,7 @@ export const TrustTicker: React.FC = () => {
       <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-[#0c4134] to-transparent z-10 pointer-events-none" />
       <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-[#0c4134] to-transparent z-10 pointer-events-none" />
 
-      <div className="animate-marquee flex items-center gap-8 whitespace-nowrap">
+      <div className="animate-marquee flex items-center gap-8 whitespace-nowrap select-none pointer-events-none">
         {items.map((text, idx) => (
           <div key={idx} className="flex items-center gap-3 text-xs sm:text-sm font-semibold tracking-wider">
             <span className="w-1.5 h-1.5 rounded-full bg-[#5fc4aa]" />
