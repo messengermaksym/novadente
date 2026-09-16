@@ -15,32 +15,34 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
     <section className="sticky top-[58px] sm:top-[68px] z-10 mt-[58px] sm:mt-[68px] pt-4 pb-16 sm:pt-8 sm:pb-20 lg:pt-14 lg:pb-28 bg-[#f9f8f4] border-b border-[#e3e1d8] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* MOBILE VIEW (< lg): Photo on top with superimposed headline */}
-        <div className="lg:hidden space-y-6">
-          {/* Top Photo Frame with Headline Superimposed */}
+        {/* MOBILE VIEW (< lg): Editorial stack with full large team portrait */}
+        <div className="lg:hidden space-y-5">
+          {/* Top Headline */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="relative rounded-2xl overflow-hidden border border-[#e3e1d8] bg-[#0c4134] shadow-sm aspect-[4/3] sm:aspect-[16/10] w-full"
+          >
+            <h1 className="font-serif text-3xl sm:text-4xl font-semibold text-[#0c4134] leading-[1.15] tracking-tight">
+              Стоматологія, якій довіряють.
+            </h1>
+          </motion.div>
+
+          {/* Full Team Photo Frame (Full 4/5 portrait ratio without cropping) */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="relative rounded-2xl overflow-hidden border border-[#e3e1d8] bg-white shadow-sm aspect-[4/5] w-full"
           >
             <Image
               src={getAssetPath("/images/clinic/hero-team.png")}
               alt="Команда лікарів Nova Dente"
               fill
               sizes="(max-width: 1024px) 100vw, 42vw"
-              className="object-cover object-top"
+              className="object-cover object-center"
               priority
             />
-            {/* Dark gradient scrim at the bottom for crisp headline legibility */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#061e18]/95 via-[#061e18]/45 to-transparent" />
-            
-            {/* Headline overlaid over the photo */}
-            <div className="absolute inset-0 flex items-end p-5 sm:p-6">
-              <h1 className="font-serif text-3xl sm:text-4xl font-semibold text-white leading-[1.15] tracking-tight drop-shadow-sm">
-                Стоматологія, якій довіряють.
-              </h1>
-            </div>
           </motion.div>
 
           {/* Lede & Actions on Mobile */}

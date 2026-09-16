@@ -6,15 +6,18 @@ import { CLINIC_STATS } from "@/data/clinicData";
 
 const StatCounter: React.FC<{ value: string }> = ({ value }) => {
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-40px" });
+  const isInView = useInView(ref, { once: true, margin: "0px 0px 80px 0px" });
   const [displayValue, setDisplayValue] = useState<string>("0");
 
   useEffect(() => {
     if (!isInView) return;
 
-    if (value.includes("5 000")) {
+    // Normalizing string to avoid non-breaking space or formatting discrepancies
+    const cleanStr = value.replace(/[\s\u00A0]+/g, "");
+
+    if (cleanStr.includes("5000") || cleanStr.includes("5000+")) {
       const controls = animate(0, 5000, {
-        duration: 2.2,
+        duration: 2.0,
         ease: [0.16, 1, 0.3, 1],
         onUpdate: (latest) => {
           const formatted = Math.floor(latest).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
@@ -22,18 +25,18 @@ const StatCounter: React.FC<{ value: string }> = ({ value }) => {
         },
       });
       return () => controls.stop();
-    } else if (value.includes("10+")) {
+    } else if (cleanStr.includes("10+")) {
       const controls = animate(0, 10, {
-        duration: 1.8,
+        duration: 1.6,
         ease: [0.16, 1, 0.3, 1],
         onUpdate: (latest) => {
           setDisplayValue(`${Math.floor(latest)}+`);
         },
       });
       return () => controls.stop();
-    } else if (value.includes("4.9")) {
+    } else if (cleanStr.includes("4.9")) {
       const controls = animate(0, 4.9, {
-        duration: 1.8,
+        duration: 1.6,
         ease: [0.16, 1, 0.3, 1],
         onUpdate: (latest) => {
           setDisplayValue(`${latest.toFixed(1)}`);
