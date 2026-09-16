@@ -71,9 +71,9 @@ export const Footer: React.FC = () => {
 
           {/* Direct Clinical Details */}
           <div className="lg:col-span-3 space-y-3">
-            <div className="text-xs font-bold uppercase tracking-widest text-[#5fc4aa]">
+            <h4 className="text-sm font-semibold text-white">
               Локація та години
-            </div>
+            </h4>
             <p className="text-xs text-white/75 flex items-start gap-2 leading-relaxed">
               <MapPin className="w-4 h-4 text-[#5fc4aa] shrink-0 mt-0.5" />
               <span>{CLINIC_INFO.fullAddress}</span>
@@ -85,9 +85,9 @@ export const Footer: React.FC = () => {
 
           {/* Direct Contact & Booking */}
           <div className="lg:col-span-3 space-y-3">
-            <div className="text-xs font-bold uppercase tracking-widest text-[#5fc4aa]">
+            <h4 className="text-sm font-semibold text-white">
               Зв&apos;язок
-            </div>
+            </h4>
             <p className="text-xs text-white/75 flex items-center gap-2">
               <Phone className="w-4 h-4 text-[#5fc4aa] shrink-0" />
               <a href={`tel:${CLINIC_INFO.phoneRaw}`} className="hover:text-white transition-colors">

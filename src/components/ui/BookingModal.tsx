@@ -88,7 +88,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 <span className="text-xs uppercase tracking-widest text-[#5fc4aa] font-semibold">
                   Nova Dente • Мукачево
                 </span>
-                <h3 className="font-serif text-xl sm:text-2xl font-medium tracking-tight">
+                <h3 className="font-serif text-xl sm:text-2xl font-semibold tracking-normal">
                   Запис на консультацію
                 </h3>
               </div>

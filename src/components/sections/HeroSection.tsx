@@ -17,28 +17,28 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
         
         {/* MOBILE VIEW (< lg): Photo on top with superimposed headline */}
         <div className="lg:hidden space-y-6">
-          {/* Top Photo Frame with Headline Superimposed */}
+          {/* Mobile Photo with Superimposed Headline */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="relative rounded-2xl overflow-hidden border border-[#e3e1d8] bg-[#0c4134] shadow-sm aspect-[4/3] sm:aspect-[16/10] w-full"
+            className="relative rounded-2xl sm:rounded-3xl overflow-hidden aspect-[4/3] sm:aspect-[16/10] w-full shadow-sm"
           >
             <Image
-              src={getAssetPath("/images/clinic/hero-team.png")}
+              src={getAssetPath("/images/clinic/hero-team-clean.jpg")}
               alt="Команда лікарів Nova Dente"
               fill
               sizes="(max-width: 1024px) 100vw, 42vw"
-              className="object-cover object-top"
+              className="object-cover object-[center_20%] rounded-2xl sm:rounded-3xl"
               priority
             />
             {/* Dark gradient scrim at the bottom for crisp headline legibility */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#061e18]/95 via-[#061e18]/45 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#061e18]/95 via-[#061e18]/45 to-transparent rounded-2xl sm:rounded-3xl pointer-events-none" />
             
             {/* Headline overlaid over the photo */}
-            <div className="absolute inset-0 flex items-end p-5 sm:p-6">
-              <h1 className="font-serif text-3xl sm:text-4xl font-semibold text-white leading-[1.15] tracking-tight drop-shadow-sm">
-                Стоматологія, якій довіряють.
+            <div className="absolute inset-0 flex items-end p-5 sm:p-6 pointer-events-none">
+              <h1 className="font-serif text-3xl sm:text-4xl font-semibold text-white leading-[1.2] tracking-normal drop-shadow-sm">
+                Стоматологія, якій довіряють
               </h1>
             </div>
           </motion.div>
@@ -84,9 +84,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="font-serif text-5xl lg:text-6xl font-semibold text-[#0c4134] leading-[1.1] tracking-tight"
+              className="font-serif text-5xl lg:text-6xl font-semibold text-[#0c4134] leading-[1.18] tracking-normal"
             >
-              Стоматологія, якій довіряють.
+              Стоматологія, якій довіряють
             </motion.h1>
 
             <motion.p

@@ -63,17 +63,14 @@ const StatCounter: React.FC<{ value: string }> = ({ value }) => {
 export const AboutSection: React.FC = () => {
   const commitments = [
     {
-      num: "01",
       title: "Цифрова мікроскопія та 3D-планування",
       text: "Лікування кореневих каналів під 20-кратним збільшенням німецького мікроскопа Carl Zeiss та діагностика на цифровому томографі. Ми рятуємо зуби, зберігаючи кожну здорову клітину емалі та дентину.",
     },
     {
-      num: "02",
       title: "Безболісний прийом та дитяча седація",
       text: "Атравматичне знеболення і безпечна седація закисом азоту («звеселяючий газ») для дітей та пацієнтів із тривожністю. Візит до стоматолога більше не викликає страху чи стресу.",
     },
     {
-      num: "03",
       title: "Міжнародні біосумісні матеріали",
       text: "Оригінальні швейцарські імплантати Straumann® з довічною гарантією виробника, ультратонкі керамічні вініри e.max та безпечне відбілювання Beyond Polus без опіку емалі.",
     },
@@ -86,7 +83,7 @@ export const AboutSection: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Editorial Section Header */}
+        {/* Editorial Section Header (No AI-slop eyebrow) */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -95,10 +92,7 @@ export const AboutSection: React.FC = () => {
           className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mb-16 items-start"
         >
           <div className="lg:col-span-5 space-y-2">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#5fc4aa]">
-              Про клініку Nova Dente
-            </span>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-tight leading-tight">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-normal leading-[1.2]">
               Турбота, професіоналізм, технології
             </h2>
           </div>
@@ -113,24 +107,22 @@ export const AboutSection: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Asymmetric Clinical Commitments List */}
+        {/* Authentic Clinical Standards List (Clean editorial lines without fake 01/02/03) */}
         <div className="border-t border-white/15 divide-y divide-white/15">
           {commitments.map((item, idx) => (
             <motion.div
-              key={item.num}
+              key={item.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="py-8 grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-baseline hover:bg-white/[0.02] transition-colors px-2 -mx-2 rounded-lg"
+              className="py-7 grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-baseline hover:bg-white/[0.02] transition-colors px-2 -mx-2 rounded-lg"
             >
-              <div className="md:col-span-1 font-serif text-sm font-bold text-[#5fc4aa]">
-                {item.num}
+              <div className="md:col-span-4 font-serif text-xl sm:text-2xl font-medium text-white flex items-center gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#5fc4aa] shrink-0" />
+                <span>{item.title}</span>
               </div>
-              <div className="md:col-span-4 font-serif text-xl sm:text-2xl font-medium text-white">
-                {item.title}
-              </div>
-              <div className="md:col-span-7 text-sm sm:text-base text-white/75 leading-relaxed">
+              <div className="md:col-span-8 text-sm sm:text-base text-white/75 leading-relaxed">
                 {item.text}
               </div>
             </motion.div>
@@ -147,7 +139,7 @@ export const AboutSection: React.FC = () => {
         >
           {CLINIC_STATS.map((stat, idx) => (
             <div key={idx} className="space-y-1.5">
-              <div className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+              <div className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-normal">
                 <StatCounter value={stat.value} />
               </div>
               <div className="text-sm text-white/75 leading-snug">

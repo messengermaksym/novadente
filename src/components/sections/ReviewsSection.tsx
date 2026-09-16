@@ -18,10 +18,7 @@ export const ReviewsSection: React.FC = () => {
           className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6"
         >
           <div className="max-w-xl space-y-2">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#1e755f]">
-              Досвід пацієнтів
-            </span>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#0c4134] tracking-tight">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#0c4134] tracking-normal leading-[1.2]">
               Відгуки про Nova Dente
             </h2>
             <p className="text-sm sm:text-base text-[#515e59] leading-relaxed">
@@ -31,7 +28,7 @@ export const ReviewsSection: React.FC = () => {
 
           <div className="flex items-center gap-3">
             <div className="px-3.5 py-2 bg-white rounded-lg border border-[#e3e1d8] text-xs font-medium text-[#121815] shadow-xs">
-              <span className="font-bold text-[#0c4134]">5.0</span> рейтинг у Google
+              <span className="font-semibold text-[#0c4134]">5.0</span> рейтинг у Google
             </div>
 
             <motion.a
@@ -71,7 +68,7 @@ export const ReviewsSection: React.FC = () => {
               </div>
 
               <div className="pt-4 mt-4 border-t border-[#f2f0ea]">
-                <div className="font-serif text-sm font-bold text-[#0c4134]">
+                <div className="font-serif text-sm font-semibold text-[#0c4134]">
                   {review.author}
                 </div>
                 <div className="text-[11px] text-[#83918b]">

@@ -23,10 +23,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenBooking })
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-2xl mb-14 space-y-2"
         >
-          <span className="text-xs font-bold uppercase tracking-widest text-[#1e755f]">
-            Локація та візит
-          </span>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#0c4134] tracking-tight">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#0c4134] tracking-normal leading-[1.2]">
             Чекаємо на вас у Мукачеві
           </h2>
           <p className="text-sm sm:text-base text-[#515e59] leading-relaxed">
@@ -49,7 +46,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenBooking })
               
               {/* Address Row */}
               <div className="py-5 space-y-1">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#83918b] block">
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-[#83918b] block">
                   Адреса клініки
                 </span>
                 <p className="text-sm font-semibold text-[#121815] leading-snug">
@@ -59,7 +56,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenBooking })
 
               {/* Working Hours Row */}
               <div className="py-5 space-y-1">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#83918b] block">
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-[#83918b] block">
                   Графік прийому
                 </span>
                 <p className="text-sm font-semibold text-[#121815]">
@@ -69,12 +66,12 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenBooking })
 
               {/* Direct Phone Contact */}
               <div className="py-5 space-y-1">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#83918b] block">
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-[#83918b] block">
                   Прямий телефон
                 </span>
                 <a
                   href={`tel:${CLINIC_INFO.phoneRaw}`}
-                  className="font-serif text-lg font-bold text-[#0c4134] hover:text-[#1e755f] transition-colors block"
+                  className="font-serif text-lg font-semibold text-[#0c4134] hover:text-[#1e755f] transition-colors block"
                 >
                   {CLINIC_INFO.phone}
                 </a>

@@ -121,10 +121,7 @@ export const TechEquipmentSection: React.FC = () => {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-2xl mb-14 space-y-2"
         >
-          <span className="text-xs font-bold uppercase tracking-widest text-[#5fc4aa]">
-            Цифрові стандарти
-          </span>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-tight">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-normal leading-[1.2]">
             Оснащення клініки світового рівня
           </h2>
           <p className="text-sm sm:text-base text-white/75 leading-relaxed">

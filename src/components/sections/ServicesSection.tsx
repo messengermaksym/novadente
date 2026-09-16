@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { SERVICES } from "@/data/clinicData";
 import { getAssetPath } from "@/lib/utils";
 
@@ -10,109 +10,96 @@ interface ServicesSectionProps {
   onSelectServiceForBooking?: (serviceTitle: string) => void;
 }
 
-export const ServicesSection: React.FC<ServicesSectionProps> = () => {
-  const [activeCategory, setActiveCategory] = useState<string>("Всі");
-
-  const categories = ["Всі", "Хірургія", "Терапія", "Естетика", "Пародонтологія", "Дітям", "Ортодонтія"];
-
-  const filteredServices =
-    activeCategory === "Всі"
-      ? SERVICES
-      : SERVICES.filter((s) => s.category === activeCategory);
-
+export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServiceForBooking }) => {
   return (
     <section id="services" className="py-20 lg:py-24 bg-[#f2f0ea] border-b border-[#e3e1d8]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
+          viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="space-y-6 mb-12"
+          className="space-y-4 mb-14 max-w-2xl"
         >
-          <div className="space-y-2 max-w-2xl">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#1e755f]">
-              Напрями лікування
-            </span>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#0c4134] tracking-tight">
-              Послуги клініки Nova Dente
-            </h2>
-            <p className="text-sm sm:text-base text-[#515e59] leading-relaxed">
-              Від профілактичної гігієни до складної імплантації та естетичного відновлення посмішки. 
-              Кожна процедура базується на цифрових протоколах.
-            </p>
-          </div>
-
-          {/* Category Tabs with wrap */}
-          <div className="flex flex-wrap items-center gap-2 pt-2">
-            {categories.map((cat) => (
-              <motion.button
-                key={cat}
-                type="button"
-                whileTap={{ scale: 0.96 }}
-                onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 rounded-lg text-xs font-medium transition-colors focus-visible:outline-2 focus-visible:outline-[#0c4134] ${
-                  activeCategory === cat
-                    ? "bg-[#0c4134] text-white font-semibold shadow-xs"
-                    : "bg-white text-[#515e59] hover:text-[#0c4134] hover:bg-[#e4f2ed] border border-[#e3e1d8]"
-                }`}
-              >
-                {cat}
-              </motion.button>
-            ))}
-          </div>
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#0c4134] tracking-normal leading-[1.2]">
+            Послуги клініки Nova Dente
+          </h2>
+          <p className="text-sm sm:text-base text-[#515e59] leading-relaxed">
+            Від профілактичної гігієни до складної імплантації та естетичного відновлення посмішки. 
+            Кожна процедура базується на цифрових протоколах.
+          </p>
         </motion.div>
 
-        {/* Services Grid with subtle hover lift and scroll reveal */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <AnimatePresence mode="popLayout">
-            {filteredServices.map((service, idx) => (
-              <motion.article
-                key={service.id}
-                layout
-                initial={{ opacity: 0, y: 32 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.15 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.5, delay: (idx % 3) * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                className="bg-white rounded-xl border border-[#e3e1d8] overflow-hidden flex flex-col justify-between shadow-xs hover:shadow-md transition-shadow group"
-              >
-                <div>
-                  {/* Service Image Frame */}
-                  <div className="relative aspect-[16/10] w-full bg-[#e4f2ed] border-b border-[#e3e1d8] overflow-hidden">
-                    <Image
-                      src={getAssetPath(service.image)}
-                      alt={service.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-                    />
-                  </div>
+        {/* Services Grid with Balanced 4-Column Layout (8 items = 2 perfect rows of 4) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {SERVICES.map((service, idx) => (
+            <motion.article
+              key={service.id}
+              initial={{ opacity: 0, y: 35, scale: 0.97 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{
+                duration: 0.5,
+                delay: (idx % 4) * 0.08,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              whileHover={{ y: -5, transition: { duration: 0.25 } }}
+              className="bg-white rounded-xl border border-[#e3e1d8] overflow-hidden flex flex-col justify-between shadow-xs hover:shadow-lg transition-all group"
+            >
+              <div>
+                {/* Service Image Frame */}
+                <div className="relative aspect-[16/10] w-full bg-[#e4f2ed] border-b border-[#e3e1d8] overflow-hidden">
+                  <Image
+                    src={getAssetPath(service.image)}
+                    alt={service.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover group-hover:scale-103 transition-transform duration-500 ease-out"
+                  />
+                </div>
 
-                  {/* Content */}
-                  <div className="p-6 space-y-4">
-                    <h3 className="font-serif text-2xl font-semibold text-[#0c4134] leading-snug">
+                {/* Content */}
+                <div className="p-5 space-y-3.5">
+                  <div className="flex items-baseline justify-between gap-2">
+                    <h3 className="font-serif text-xl font-semibold text-[#0c4134] leading-snug">
                       {service.title}
                     </h3>
-                    <p className="text-sm text-[#515e59] leading-relaxed">
-                      {service.shortDesc}
-                    </p>
-
-                    <ul className="space-y-2 pt-2 border-t border-[#e3e1d8]">
-                      {service.features.map((feat, fIdx) => (
-                        <li key={fIdx} className="flex items-baseline gap-2 text-xs text-[#121815]">
-                          <span className="text-[#1e755f] font-bold">—</span>
-                          <span>{feat}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    {service.priceHint && (
+                      <span className="text-xs font-semibold text-[#1e755f] tabular-nums whitespace-nowrap">
+                        {service.priceHint}
+                      </span>
+                    )}
                   </div>
+
+                  <p className="text-xs sm:text-sm text-[#515e59] leading-relaxed line-clamp-3">
+                    {service.shortDesc}
+                  </p>
+
+                  <ul className="space-y-2 pt-2 border-t border-[#e3e1d8]">
+                    {service.features.map((feat, fIdx) => (
+                      <li key={fIdx} className="flex items-baseline gap-2 text-xs text-[#121815]">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#3aa88c] shrink-0 self-center" />
+                        <span>{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              </motion.article>
-            ))}
-          </AnimatePresence>
+              </div>
+
+              {/* Direct Action for this service */}
+              <div className="px-6 pb-6 pt-2">
+                <button
+                  type="button"
+                  onClick={() => onSelectServiceForBooking?.(service.title)}
+                  className="w-full py-2.5 px-4 rounded-lg bg-[#f2f0ea] hover:bg-[#0c4134] text-[#0c4134] hover:text-white text-xs font-semibold transition-colors flex items-center justify-between group/btn cursor-pointer"
+                >
+                  <span>Записатися на прийом</span>
+                  <span className="text-sm transition-transform group-hover/btn:translate-x-0.5">→</span>
+                </button>
+              </div>
+            </motion.article>
+          ))}
         </div>
       </div>
     </section>

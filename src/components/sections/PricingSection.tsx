@@ -31,10 +31,7 @@ export const PricingSection: React.FC<PricingSectionProps> = () => {
           className="space-y-6 pb-8 border-b border-[#e3e1d8]"
         >
           <div className="space-y-2 max-w-2xl">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#1e755f]">
-              Вартість послуг
-            </span>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#0c4134] tracking-tight">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#0c4134] tracking-normal leading-[1.2]">
               Орієнтовна вартість лікування
             </h2>
             <p className="text-sm sm:text-base text-[#515e59] leading-relaxed">
