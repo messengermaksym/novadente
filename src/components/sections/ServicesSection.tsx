@@ -36,16 +36,16 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
           {SERVICES.map((service, idx) => (
             <motion.article
               key={service.id}
-              initial={{ opacity: 0, y: 35, scale: 0.97 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "0px 0px -50px 0px" }}
               transition={{
                 duration: 0.5,
                 delay: (idx % 4) * 0.08,
-                ease: [0.22, 1, 0.36, 1],
+                ease: "easeOut",
               }}
-              whileHover={{ y: -5, transition: { duration: 0.25 } }}
-              className="bg-white rounded-xl border border-[#e3e1d8] overflow-hidden flex flex-col justify-between shadow-xs hover:shadow-lg transition-all group"
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              className="bg-white rounded-xl border border-[#e3e1d8] overflow-hidden flex flex-col justify-between shadow-xs hover:shadow-md transition-shadow group will-change-transform"
             >
               <div>
                 {/* Service Image Frame */}
